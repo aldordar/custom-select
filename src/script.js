@@ -40,6 +40,8 @@ function mySelect() {
           for (i = 0; i < s.length; i++) {
             if (s.options[i].innerHTML == this.innerHTML) {
               s.selectedIndex = i;
+              let eventChange = new Event('change');
+              s.dispatchEvent(eventChange);
               h.innerHTML = this.innerHTML;
               y = this.parentNode.getElementsByClassName('same-as-selected');
               for (k = 0; k < y.length; k++) {
