@@ -1,0 +1,103 @@
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  background: none;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  font-family: Inter;
+
+  .select-search {
+    border: 1px solid $light-grey;
+    width: 100%;
+    font-size: 17.5px;
+    border-radius: 8px;
+    // cursor: pointer;
+    padding: 8px 15px;
+    outline: none;
+    display: none;
+    z-index: 10;
+    position: absolute;
+    &::-webkit-input-placeholder{
+      color: $secondary-text;
+    }
+  }
+  
+  .select-search.active {
+    display: block;
+  }
+  
+  select {
+    display: none; /*hide original SELECT element:*/
+  }
+  
+  .select-selected {
+    color: $main-color;
+    background-color: $text-color;
+    &::after {
+      position: absolute;
+      content: "";
+      right: 15px;
+      z-index: 11;
+      top: 50%;
+      transform: translate(0%, -25%);
+      width: 0;
+      height: 0;
+      border: 7px solid transparent;
+      border-color: $main-color transparent transparent transparent;
+    }
+  }
+  
+  .select-selected.placeholder {
+    color: $secondary-text;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent $main-color transparent;
+    transform: translate(0%, -80%);
+  }
+    
+  .select-items div {
+    color: $main-color;
+    border-radius: 0 !important;
+    top: 0;
+    left: 0;
+  }
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+    position: relative;
+    font-size: 17.5px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid $light-grey;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+    border-bottom: 1px solid $light-grey;
+    background-color: $text-color;
+    /*Set to position absolute to overlay on top other items*/
+    /*Set to position relative to move items below further*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-height: 15rem;
+    overflow-y: auto;
+  }
+  
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: $cadet-blue;
+  }
+}
+

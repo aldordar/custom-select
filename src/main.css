@@ -1,0 +1,114 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box; 
+  font-family: 'Inter', sans-serif;
+}
+
+/* ------------------ */
+.custom-select {
+  position: relative;
+  background: none;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.select-search {
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  font-size: 17.5px;
+  border-radius: 8px;
+  padding: 8px 15px;
+  outline: none;
+  display: none;
+  z-index: 10;
+  position: absolute;
+}
+
+.select-search::-webkit-input-placeholder{
+  color: #8D93A4;
+  font-family: 'Inter', sans-serif;
+}
+
+.select-search.active {
+  display: block;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #FFF;
+}
+
+.select-selected.placeholder {
+  color: #8D93A4;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  right: 15px;
+  z-index: 11;
+  top: 50%;
+  transform: translate(0%, -25%);
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-color: #0E2050 transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #0E2050 transparent;
+  transform: translate(0%, -80%);
+}
+
+.select-selected {
+  color: #0E2050;
+}
+
+.select-items div {
+  color: #0E2050;
+  border-radius: 0 !important;
+  top: 0;
+  left: 0;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  position: relative;
+  font-size: 17.5px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #FFF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: #f4f4f4;
+}
