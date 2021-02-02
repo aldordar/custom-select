@@ -1,3 +1,7 @@
+$border: 1px solid $light-grey;
+$item_padding: 8px 15px;
+$font-size: 17.5px;
+
 /*the container must be positioned relative:*/
 .custom-select {
   position: relative;
@@ -10,13 +14,13 @@
   font-family: Inter;
 
   .select-search {
-    border: 1px solid $light-grey;
+    border: $border;
     width: 100%;
     height: 100%;
-    font-size: 17.5px;
+    font-size: $font_size;
     border-radius: 8px;
     // cursor: pointer;
-    padding: 8px 15px;
+    padding: $item_padding;
     outline: none;
     display: none;
     z-index: 10;
@@ -70,18 +74,18 @@
   /*style the items (options), including the selected item:*/
   .select-items div,.select-selected {
     position: relative;
-    font-size: 17.5px;
-    padding: 8px 15px;
+    font-size: $font_size;
+    padding: $item_padding;
     border-radius: 8px;
     width: 100%;
-    border: 1px solid $light-grey;
+    border: $border;
     cursor: pointer;
     user-select: none;
   }
   
   /*style items (options):*/
   .select-items {
-    border-bottom: 1px solid $light-grey;
+    border-bottom: $border;
     background-color: $text-color;
     /*Set to position absolute to overlay on top other items*/
     /*Set to position relative to move items below further*/
