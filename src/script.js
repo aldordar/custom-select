@@ -47,9 +47,9 @@ function mySelect() {
               h.innerHTML = this.innerHTML;
               y = this.parentNode.getElementsByClassName('same-as-selected');
               for (k = 0; k < y.length; k++) {
-                y[k].removeAttribute('class');
+                (y[k].className) ? y[k].classList.remove('same-as-selected') : y[k].removeAttribute('class');
               }
-              this.setAttribute('class', 'same-as-selected');
+              (this.className) ? this.classList.add('same-as-selected') : this.setAttribute('class', 'same-as-selected');
               break;
             }
           }
