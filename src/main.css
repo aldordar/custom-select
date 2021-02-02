@@ -22,6 +22,7 @@ body {
 .select-search {
   border: 1px solid #e0e0e0;
   width: 100%;
+  height: 100%;
   font-size: 17.5px;
   border-radius: 8px;
   padding: 8px 15px;
