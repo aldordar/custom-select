@@ -29,6 +29,8 @@ function mySelect() {
     //Start in 1 bc first option is placeholder
     for (j = 1; j < selElmnt.length; j++) {
       c = document.createElement('div');
+      //Add classes of the original option element to the custom item div
+      if (selElmnt.options[j].className) c.className = selElmnt.options[j].className;
       c.innerHTML = selElmnt.options[j].innerHTML;
 
       c.addEventListener('click', function(e) {
