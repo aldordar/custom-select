@@ -1,7 +1,4 @@
-let cuSelect = document.querySelector('.custom-select');
-if (cuSelect) {
-  mySelect();
-}
+mySelect();
 
 function mySelect() {
   let x, i, j, selElmnt, a, b, c;
@@ -32,6 +29,8 @@ function mySelect() {
       //Add classes of the original option element to the custom item div
       if (selElmnt.options[j].className) c.className = selElmnt.options[j].className;
       c.innerHTML = selElmnt.options[j].innerHTML;
+      c.dataset.optionValue = selElmnt.options[j].value;
+      c.dataset.optionIndex = j;
 
       c.addEventListener('click', function(e) {
           let y, i, k, s, h;
@@ -40,8 +39,8 @@ function mySelect() {
           if (h.classList.contains('placeholder')) h.classList.remove('placeholder');
 
           for (i = 0; i < s.length; i++) {
-            if (s.options[i].innerHTML == this.innerHTML) {
-              s.selectedIndex = i;
+            if (s.options[i].value == this.dataset.optionValue) {
+              s.selectedIndex = this.dataset.optionIndex;
               let eventChange = new Event('change');
               s.dispatchEvent(eventChange);
               h.innerHTML = this.innerHTML;
